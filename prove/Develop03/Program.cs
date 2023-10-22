@@ -1,9 +1,18 @@
 using System;
+using System.IO;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Console.WriteLine("Hello Develop03 World!");
+        Scripture scripture = new Scripture()
+        scripture.SetScripture("For behold, this is my work and my glory—to bring to pass the immortality and eternal life of man.")
+
+        Console.WriteLine(scripture.GetScripture())
     }
 }
+
+
+
+
+
