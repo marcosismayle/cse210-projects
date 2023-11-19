@@ -1,0 +1,7 @@
+ChecklistGoal
+- SingleEventPoints: int
+- TotalEventsRequired: int
+- BonusPoints: int
+- completedEvents: int
++ RecordEvent(): void
++ DisplayProgress(): void

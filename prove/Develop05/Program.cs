@@ -4,6 +4,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop05 World!");
+        Program
+- GoalManager: GoalManager
+- Menu: Menu  
++ Main(): void
+
     }
 }
