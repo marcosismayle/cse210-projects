@@ -1,8 +1,8 @@
 using System;
 
-public class ShowGoalCreationMenu : Menu
+public class GoalCreationMenu
 {
-    public override void ShowGoalCreationMenu()
+    public void ShowGoalCreationMenu()
     {
         Console.WriteLine("The types of Goals are: ");
         Console.WriteLine("1. Simple Goal");
@@ -12,7 +12,7 @@ public class ShowGoalCreationMenu : Menu
         Console.Write("Which type of goal do you like to create? ");
     }
 
-    public override int GetChoice()
+    public int GetChoice()
     {
         int choice;
         while (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 3)

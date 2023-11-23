@@ -16,9 +16,36 @@ class Program
             switch (choice)
             {
                 case 1:
-                    Console.WriteLine("Creating New Goal");
-                    // Add logic for creating a new goal
+                    GoalCreationMenu goalCreationMenu = new GoalCreationMenu();
+                    int goalChoice;
+
+                    goalCreationMenu.ShowGoalCreationMenu();
+                    goalChoice = goalCreationMenu.GetChoice();
+
+                    switch (goalChoice)
+                    {
+                        case 1:
+                            SimpleGoal simpleGoal = new SimpleGoal("DefaultName", "DefaultDescription", 0);
+                            simpleGoal.GatherGoalInfo();
+                            
+                            break;
+                        case 2:
+                            Console.WriteLine("Goal 2");
+                            // Add logic for listing goals
+                            break;
+
+                        case 3:
+                            Console.WriteLine("Goal 3");
+                            // Add logic for saving goals
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid option!");
+                            break;
+                    };
+                    
                     break;
+
                 case 2:
                     Console.WriteLine("Listing Goals");
                     // Add logic for listing goals

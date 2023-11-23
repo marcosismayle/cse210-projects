@@ -8,7 +8,7 @@ using System;
 
 public class Menu
 {
-    public virtual void ShowMainMenu()
+    public void ShowMainMenu()
     {
         Console.WriteLine("Menu Options: ");
         Console.WriteLine("1. Create New Goal");
@@ -21,7 +21,7 @@ public class Menu
         Console.Write("Select a choice from the menu: ");
     }
 
-    public virtual int GetChoice()
+    public int GetChoice()
     {
         int choice;
         while (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 6)
