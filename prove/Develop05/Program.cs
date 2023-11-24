@@ -4,13 +4,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        Menu menu = new Menu(); // Create an instance of the Menu class
+        Menu menu = new Menu();
+        GoalManager goalManager = new GoalManager();
 
         int choice;
 
         do
         {
-            menu.ShowMainMenu(); // Call the ShowMainMenu method on the menu instance
+            menu.ShowMainMenu();
             choice = menu.GetChoice();
 
             switch (choice)
@@ -25,18 +26,17 @@ class Program
                     switch (goalChoice)
                     {
                         case 1:
-                            SimpleGoal simpleGoal = new SimpleGoal("DefaultName", "DefaultDescription", 0);
+                            SimpleGoal simpleGoal = new SimpleGoal();
                             simpleGoal.GatherGoalInfo();
+                            goalManager.AddGoal(simpleGoal);
                             
                             break;
                         case 2:
                             Console.WriteLine("Goal 2");
-                            // Add logic for listing goals
                             break;
 
                         case 3:
                             Console.WriteLine("Goal 3");
-                            // Add logic for saving goals
                             break;
 
                         default:
@@ -47,23 +47,19 @@ class Program
                     break;
 
                 case 2:
-                    Console.WriteLine("Listing Goals");
-                    // Add logic for listing goals
+                    goalManager.DisplayGoals();
                     break;
 
                 case 3:
-                    Console.WriteLine("Saving Goals");
-                    // Add logic for saving goals
+                    goalManager.SaveData();
                     break;
 
                 case 4:
-                    Console.WriteLine("Loading Goals");
-                    // Add logic for loading goals
+                    goalManager.LoadData();
                     break;
 
                 case 5:
-                    Console.WriteLine("Recording Event");
-                    // Add logic for recording an event
+                    goalManager.RecordEvent();
                     break;
 
                 case 6:
@@ -74,6 +70,6 @@ class Program
                     Console.WriteLine("Invalid option!");
                     break;
             }
-        } while (choice != 6); // Change the loop condition to match the available options
+        } while (choice != 6);
     }
 }
