@@ -31,20 +31,32 @@ public class JournalEntries
         }
     }
 
-    public static List<string> ReadFromFile()
+    //this part was updated to fix how the program loads external files
+    public static List<string> ReadFromFile(string filename)
     {
-        Console.WriteLine("Reading list from file...");
+        Console.WriteLine($"Reading list from file {filename}...");
+
         List<string> entries = new List<string>();
-        string filename = "journal.txt";
 
-        string[] lines = System.IO.File.ReadAllLines(filename);
-
-        foreach (string line in lines)
+        if (File.Exists(filename))
         {
-            Console.WriteLine(line);
+            string[] lines = File.ReadAllLines(filename);
+
+            foreach (string line in lines)
+            {
+                entries.Add(line);
+            }
+
+            Console.WriteLine("Entries loaded successfully.");
         }
+        else
+        {
+            Console.WriteLine($"File {filename} not found. No entries loaded.");
+        }
+
         return entries;
     }
+
 
     public int GetNumberOfEntries()
     {

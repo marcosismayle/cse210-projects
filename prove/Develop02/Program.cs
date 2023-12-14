@@ -1,4 +1,6 @@
 using System;
+//exceed requirement
+//I used Console.Clear() to clear the console and added one more option to show statistics like, how many entries and the average of characters by entry.
 
 class Program
 {
@@ -18,9 +20,9 @@ class Program
                     Console.Clear();
                     string randomPrompt = PromptGenerator.GetRandomPrompt();
                     Console.WriteLine(randomPrompt);
-                    string entry = Console.ReadLine();
+                    string userInput = Console.ReadLine();
                     string date = DateTime.Now.ToString("MM/dd/yyyy");
-                    string formatedEntry = $"Date: {date} - Prompt: {randomPrompt}\n{entry}";
+                    string formatedEntry = $"Date: {date} - Prompt: {randomPrompt}\n{userInput}";
                     JournalEntries.newEntry(formatedEntry);
                     Console.Clear();
                     
@@ -40,10 +42,15 @@ class Program
             
                 case 4:
                     Console.Clear();
-                    JournalEntries.ReadFromFile();
+                    List<string> loadedEntries = JournalEntries.ReadFromFile("journal.txt");
+                    foreach (string entry in loadedEntries)
+                    {
+                        Console.WriteLine(entry);
+                    }
                     Console.ReadLine();
                     Console.Clear();
                     break;
+
 
                 case 5:
                     Console.Clear();
